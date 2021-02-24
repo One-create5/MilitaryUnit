@@ -32,25 +32,26 @@ namespace MilitaryUnit
         {
             for (int i = 0; i < size; i++)
             {
-                InsertRound();
+                pushRound();
             }
         }
         public void Clear() => top = -1;
         
-        public void InsertRound() // push
+        private void pushRound() // push
         {
             if (!IsFull()) ammo[++top] = 1;
            
         }
 
 
-        public int PullTrigger() // pop
+        public int popRound() // pop
         {
             if (IsEmpty())
             {
                 return -1;
             }
 
+            // changes top (top--)
             return ammo[top--];
         }
 
@@ -61,6 +62,7 @@ namespace MilitaryUnit
                 return -1;
             }
 
+            // does not change top
             return ammo[top];
         }
     }

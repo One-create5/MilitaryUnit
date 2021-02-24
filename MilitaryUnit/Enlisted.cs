@@ -6,22 +6,17 @@ namespace MilitaryUnit
 {
     class Enlisted : Personnel
     {
-        private string jobTitle;
-        private int mos;
-        protected EnlistedRank EnlistedRank;
+ 
+        private EnlistedRank enlistedRank;
 
-        public Enlisted() : base() 
+        public Enlisted(string name, EnlistedRank rank) : base(name) 
         {
-            this.jobTitle = "Recruit";
-            this.mos = 0;
-            EnlistedRank = EnlistedRank.Pvt;
+            this.enlistedRank = rank;
         }
 
-        public Enlisted(string name, int age, double height, double weight, string jobTitle, int mos, EnlistedRank rank) : base(name,age,height, weight) 
+        public EnlistedRank getRank() 
         {
-            this.jobTitle = jobTitle;
-            this.mos = mos;
-            this.EnlistedRank = rank;
-        }   
+            return enlistedRank;
+        }
     }
 }
